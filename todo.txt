@@ -1,0 +1,3 @@
+-fill all gems
+-make git repo
+-deploy to heroku
