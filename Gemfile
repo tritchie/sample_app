@@ -26,6 +26,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '2.6.1'
+  gem 'irbtools'
 end
 
 # Use unicorn as the web server
