@@ -11,6 +11,7 @@ gem 'will_paginate', '3.0.pre2'
 gem 'haml'
 
 group :development do
+  gem 'rails-footnotes'
   gem 'annotate-models', '1.0.4'
   gem 'faker', '0.3.1'
 end
