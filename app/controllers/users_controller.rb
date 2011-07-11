@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @title = "Sign up"
+    @button_name = 'Submit'
   end
 
   def create
@@ -22,6 +23,12 @@ class UsersController < ApplicationController
       @user.password_confirmation = ''
       render 'new'
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    @title = 'Edit user'
+    @button_name = 'Update'
   end
 
 end
