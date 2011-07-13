@@ -262,6 +262,10 @@ describe UsersController do
         response.should have_selector("a", :href => "/users?page=2",
                                       :content => "Next")
       end
+      it "should not have a delete link" do
+        get :index
+        response.should_not have_selector("a", :content => "Delete")
+      end
     end
   end
 
@@ -294,6 +298,10 @@ describe UsersController do
       end
       it 'should redirect the page' do
         delete 'destroy', :id => @user
+        response.should redirect_to users_path
+      end
+      it 'should not allow admins to destroy themselves' do
+        delete 'destroy', :id => @admin
         response.should redirect_to users_path
       end
     end
