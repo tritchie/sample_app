@@ -275,6 +275,14 @@ describe UsersController do
         response.should_not have_selector("a", :content => "Delete")
       end
     end
+    describe "for admin users" do
+      it 'should have a delete link' do
+        @admin = Factory(:user, :email => 'admin@example.com', :admin => true)
+        test_sign_in(@admin)
+        get :index
+        response.should have_selector("a", :content => "delete")
+      end
+    end
   end
 
   describe "DELETE 'destroy'" do
